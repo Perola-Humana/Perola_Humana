@@ -151,9 +151,7 @@ export default function BookShowcase() {
                     <div className="flex flex-wrap gap-4 text-sm text-slate-400">
                       <span>por {currentBook.author}</span>
                       <span>•</span>
-                      <span>Publicado em {currentBook.published}</span>
-                      <span>•</span>
-                      <span>{currentBook.pages} páginas</span>
+                      <span>Publicado em {currentBook.published}</span>                    
                     </div>
                   </div>
 

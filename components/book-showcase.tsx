@@ -1,27 +1,22 @@
 "use client"
 
 import { motion, AnimatePresence, type PanInfo } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ShoppingCart, Heart, Share2, Star, CheckCircle, Subtitles } from "lucide-react"
+import { CheckCircle } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
-import { de } from "date-fns/locale"
-import { sub } from "date-fns"
 
 const books = [
   {
     title1: "O mistério do invisível",
     title2: "A responsabilidade é toda tua",
-    subtitle: "ESTE LIVRO NÃO É PARA SER LIDO- É PARA SER SENTIDO", 
+    subtitle: "ESTE LIVRO NÃO É PARA SER LIDO- É PARA SER SENTIDO",
     description1:
       "O mistério do invisível é um convite direto ao despertar de uma consciência que talvez nem saibas que estava adormecida. Vivemos cercados de informação, distrações e incertezas impostas, mas raramente paramos para questionar quem somos, o que escolhemos e quem realmente conduz a nossa vida. ",
     description2:
       "Entre ciência, espiritualidade e comportamento humano, estas páginas atravessam temas como mente, amor, relações, dinheiro, sexualidade, sistemas de controlo e identidade pessoal. Não para impor verdades, mas para quebrar automatismos invisíveis que moldam decisões todos os dias sem que percebas. ",
-    description3:
-    "Este livro não promete conforto.",
-    description4:
-    "promete clareza,",
+    description3: "Este livro não promete conforto.",
+    description4: "promete clareza,",
     description5:
-    "Porque aquilo que não vês pode estar a definir tudo aquilo que vives e reconhecer isso é o primeiro passo para retomar o controlo da tua própria história."
+      "Porque aquilo que não vês pode estar a definir tudo aquilo que vives e reconhecer isso é o primeiro passo para retomar o controlo da tua própria história.",
   },
 ]
 
@@ -148,9 +143,6 @@ export default function BookShowcase() {
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-[#C8935F] to-[#E0A878] rounded-full" />
                     <p className="text-xl sm:text-2xl mb-4 text-muted-foreground mt-5">{currentBook.subtitle}</p>
-                    <div className="flex flex-wrap gap-4 text-sm text-slate-400">    
-                                                       
-                    </div>
                   </div>
 
                   {/* Descrição */}
@@ -159,29 +151,22 @@ export default function BookShowcase() {
                     <p className="text-foreground">{currentBook.description2}</p>
                     <p className="text-foreground">{currentBook.description3}</p>
                     <p className="text-foreground">{currentBook.description4}</p>
-                    <p className="text-foreground">{currentBook.description5}</p>                   
+                    <p className="text-foreground">{currentBook.description5}</p>
                   </div>
 
-                  {/* Botões de ação */}
-                  <div className="flex flex-wrap gap-4">
-                    
-                  </div>
-
-                  {/* Avaliação e disponibilidade */}
+                  {/* Disponibilidade */}
                   <div className="flex flex-wrap items-center gap-8 pt-4 border-t border-border">
-                    
-
                     <div className="flex items-center gap-3 text-primary">
                       <CheckCircle className="w-6 h-6" />
                       <div>
-                        <div className="font-semibold">Distribuído em Portugal e Brasil</div>                     
+                        <div className="font-semibold">Distribuído em Portugal e Brasil</div>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
-          </div>          
+          </div>
         </div>
       </div>
     </section>

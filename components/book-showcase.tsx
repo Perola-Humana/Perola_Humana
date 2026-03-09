@@ -17,7 +17,7 @@ const books = [
     reviews: "8.547",
     categories: ["Saúde", "Bem-estar", "Autoconhecimento"],
     description1:
-      "Um convite ao despertar: entre ciência, espiritualidade e comportamento humano, este livro questiona quem somos, o que escolhemos e quem conduz a nossa vida. Não promete conforto — promete clareza.",
+      "Entre ciência, espiritualidade e comportamento humano, este livro questiona quem somos, o que escolhemos e quem conduz a nossa vida. Não promete conforto — promete clareza.",
     description2:
       "Vivemos anestesiados, perdidos em rotinas automáticas. Este livro rasga esse véu e confronta a verdade esquecida: tudo o que vivemos é responsabilidade nossa. Um chamamento para acordar.",
   },

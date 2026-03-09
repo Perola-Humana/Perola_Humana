@@ -104,7 +104,7 @@ export default function BookShowcase() {
                   initial={{ opacity: 0, x: -60 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.7 }}
-                  className="flex justify-center py-3.5"
+                  className="flex justify-center pt-3.5 pb-10 lg:py-3.5"
                 >
                   <motion.div
                     whileHover={{ scale: 1.05, rotateY: -5 }}

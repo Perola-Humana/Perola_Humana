@@ -20,6 +20,8 @@ const books = [
       "Entre ciência, espiritualidade e comportamento humano, este livro questiona quem somos, o que escolhemos e quem conduz a nossa vida. Não promete conforto — promete clareza.",
     description2:
       "Vivemos anestesiados, perdidos em rotinas automáticas. Este livro rasga esse véu e confronta a verdade esquecida: tudo o que vivemos é responsabilidade nossa. Um chamamento para acordar.",
+      description3:
+      "Em breve em outros idiomas.",
   },
 ]
 
@@ -171,6 +173,7 @@ export default function BookShowcase() {
                   <div className="space-y-4 leading-relaxed text-muted-foreground">
                     <p className="text-foreground">{currentBook.description1}</p>
                     <p className="text-foreground">{currentBook.description2}</p>
+                    <p className="text-foreground">{currentBook.description3}</p>
                   </div>
 
                   {/* Botões de ação */}

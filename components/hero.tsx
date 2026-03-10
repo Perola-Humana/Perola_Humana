@@ -60,18 +60,8 @@ export default function Hero() {
     <section id="hero" className="relative w-full h-screen overflow-hidden">
       {/* Vídeo ou Imagem de Fundo */}
       <div className="absolute inset-0 w-full h-full">
-        {/* Opção 1: Vídeo de fundo - descomente se tiver um vídeo */}
-        {/* <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/videos/background.mp4" type="video/mp4" />
-        </video> */}
         
-        {/* Opção 2: Imagem de fundo */}
+        {/* Imagem de fundo */}
         <img
           src="/peaceful-yoga-meditation-wellness-nature.jpg"
           alt="Background"
@@ -115,22 +105,7 @@ export default function Hero() {
               )}
             </motion.div>
           </AnimatePresence>
-
-          {/* Indicadores de progresso (opcional) */}
-          {/* <div className="flex justify-center gap-2 mt-12">
-            {quotes.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentQuote(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentQuote 
-                    ? "bg-white w-8" 
-                    : "bg-white/40 hover:bg-white/60"
-                }`}
-                aria-label={`Ver frase ${index + 1}`}
-              />
-            ))}
-          </div> */}
+         
         </div>
       </div>
 

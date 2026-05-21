@@ -7,6 +7,7 @@ import { useState } from "react"
 interface MissionItem {
   id: number
   icon: any
+  image?: string
   title: string
   description?: string
   subHeading?: string
@@ -17,6 +18,7 @@ const missionItems: MissionItem[] = [
   {
     id: 1,
     icon: Users,
+    image: "/centro_rosa.jpeg",
     title: "PROJETO: ROSA",
     subHeading: "Centro de dia para idosos totalmente gratuito.",
     status: "Mais informações em breve",
@@ -24,6 +26,7 @@ const missionItems: MissionItem[] = [
   {
     id: 2,
     icon: Handshake,
+    image: "/orquideas_brancas.jpeg",
     title: "PROJETO: ORQUÍDEAS BRANCAS",
     subHeading: "Apoio às Vítimas de Violência Doméstica.",
     status: "Mais informações em breve",
@@ -143,8 +146,13 @@ export default function MissionSection() {
                 <div className="flex flex-col h-full relative z-10">
                   {/* Card Header */}
                   <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-[#C8935F]/20 rounded-xl text-[#C8935F] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <div className="p-3 bg-[#C8935F]/20 rounded-xl text-[#C8935F] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 mx-auto">
+                      {/* <item.icon className="w-7 h-7" /> */}
+                      {item.image ? (
+                      <img src={item.image} alt={item.title} className="w-24 h-24 object-contain mx-auto" />
+                    ) : (
                       <item.icon className="w-7 h-7" />
+)}
                     </div>
                     <ChevronDown
                       className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${

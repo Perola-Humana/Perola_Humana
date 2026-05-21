@@ -31,7 +31,7 @@ export default function Contact() {
       icon: Instagram,
       label: "Instagram",
       value: "@perolahumana",
-      link: "https://instagram.com/perolahumana",
+      link: "https://instagram.com/perolahumana.84",
       color: "text-pink-500",
     },
     {

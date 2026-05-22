@@ -3,6 +3,7 @@
 import { motion, useScroll, AnimatePresence } from "framer-motion"
 import { useState, useEffect, useRef } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
+import { Poppins, Cinzel } from "next/font/google"
 
 const languages = [
   { code: 'pt', label: 'Português', googCode: null },
@@ -11,6 +12,11 @@ const languages = [
   { code: 'es', label: 'Español',   googCode: 'es' },
   { code: 'ar', label: 'العربية',   googCode: 'ar' },
 ]
+
+  const cinzel = Cinzel({
+    subsets: ["latin"],
+    weight: ["400", "700", "900"],
+  })
 
 export function Header() {
   const [hidden, setHidden] = useState(false)
@@ -75,13 +81,22 @@ export function Header() {
 
   const handleNavClick = () => setMobileMenuOpen(false)
 
+  // const navLink =
+  //   "relative text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 " +
+  //   "after:absolute after:left-0 after:bottom-[-3px] after:h-[2px] after:w-0 after:bg-gradient-to-r " +
+  //   "after:from-[#C8935F] after:to-[#E0A878] after:rounded-full after:transition-all after:duration-300 hover:after:w-full"
+
   const navLink =
-    "relative text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 " +
+    "relative text-base font-medium transition-colors duration-300 " +
+    "text-[#C8935F] hover:text-[#E8C99A] " +
     "after:absolute after:left-0 after:bottom-[-3px] after:h-[2px] after:w-0 after:bg-gradient-to-r " +
     "after:from-[#C8935F] after:to-[#E0A878] after:rounded-full after:transition-all after:duration-300 hover:after:w-full"
 
+  // const mobileNavLink =
+  //   "block py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 border-b border-border last:border-0"
+
   const mobileNavLink =
-    "block py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 border-b border-border last:border-0"
+    "block py-3 text-lg font-medium text-[#C8935F] hover:text-[#E8C99A] transition-colors duration-300 border-b border-border last:border-0"
 
   const LangSwitcher = ({ mobile = false }: { mobile?: boolean }) => (
     <div ref={!mobile ? dropdownRef : undefined} style={{ position: 'relative' }}>
@@ -162,7 +177,8 @@ export function Header() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border shadow"
       style={{
-        backgroundColor: 'rgba(250, 247, 242, 0.95)',
+        // backgroundColor: 'rgba(250, 247, 242, 0.95)',
+        backgroundColor: '#0D2B4A',
         marginTop: isTranslated ? '40px' : '0px',
         transition: 'margin-top 0.3s ease',
       }}
@@ -179,13 +195,16 @@ export function Header() {
 
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-          <img src="/logo_nav.png" alt="Pérola Humana" style={{ height: showDesktopNav ? '56px' : '44px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} />
-          <span style={{
-            fontWeight: 600,
-            fontSize: isMobile ? '0.85rem' : showDesktopNav ? '1.4rem' : '1.1rem',
-            color: '#C8935F',
-            whiteSpace: 'nowrap'
-          }}>
+          <img src="/perola_humana.jpeg" alt="Pérola Humana" style={{ height: showDesktopNav ? '56px' : '44px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} />
+          <span
+            className={cinzel.className}
+            style={{
+              fontWeight: 600,
+              fontSize: isMobile ? '0.85rem' : showDesktopNav ? '1.4rem' : '1.1rem',
+              color: '#C8935F',
+              whiteSpace: 'nowrap'
+            }}
+          >
             Pérola Humana
           </span>
         </div>

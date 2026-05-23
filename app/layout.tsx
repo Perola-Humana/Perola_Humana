@@ -12,7 +12,7 @@ const _rubik = V0_Font_Rubik({ subsets: ['latin'], weight: ["300","400","500","6
 const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
+  title: 'Pérola Humana',
   description: 'Created with v0',
   generator: 'v0.app',
 }

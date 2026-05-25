@@ -125,23 +125,11 @@ export function Header() {
       <AnimatePresence>
         {langDropdownOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.15 }}
-            style={{
-              position: mobile ? 'relative' : 'absolute',
-              top: mobile ? '4px' : 'calc(100% + 4px)',
-              right: mobile ? 'auto' : 0,
-              width: mobile ? '100%' : '160px',
-              backgroundColor: 'rgba(250, 247, 242, 0.98)',
-              border: '1px solid #C8935F',
-              borderRadius: '8px',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
-              overflow: 'hidden',
-              zIndex: 100,
-              marginTop: mobile ? '4px' : 0,
-            }}
+            initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
+            animate={{ opacity: 1, height: "auto", overflow: 'visible' }}
+            exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{ borderTop: '1px solid #e5e7eb', backgroundColor: 'rgba(250, 247, 242, 0.98)' }}
           >
             {languages.map((lang) => (
               <button

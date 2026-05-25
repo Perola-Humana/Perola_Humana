@@ -996,7 +996,7 @@ export default function DiseasesAlphabetGrid() {
             onClick={() => openLetterModal(letterGroup)}
             whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-br from-[#E0A878] to-[#C8935F] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="bg-gradient-to-br from-[#E0A878] to-[#C8935F] rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 group"
           >
             <div className="flex items-center gap-4">
               {/* Círculo com a Letra */}
@@ -1008,7 +1008,7 @@ export default function DiseasesAlphabetGrid() {
 
               {/* Info */}
               <div className="text-left flex-1">
-                <p className="text-white font-bold text-lg">
+                <p className="text-white font-bold text-sm sm:text-lg">
                   {letterGroup.count} doença{letterGroup.count !== 1 ? 's' : ''}
                 </p>
                 <p className="text-white/80 text-sm">
@@ -1017,7 +1017,7 @@ export default function DiseasesAlphabetGrid() {
               </div>
 
               {/* Seta */}
-              <ChevronRight className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+              <ChevronRight className="w-5 h-5 text-white/70 group-hover:text-white transition-colors hidden sm:block" />
             </div>
           </motion.button>
         ))}

@@ -129,7 +129,13 @@ export function Header() {
             animate={{ opacity: 1, height: "auto", overflow: 'visible' }}
             exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            style={{ borderTop: '1px solid #e5e7eb', backgroundColor: 'rgba(250, 247, 242, 0.98)' }}
+            style={{
+              borderTop: '1px solid #e5e7eb',
+              backgroundColor: 'rgba(250, 247, 242, 0.98)',
+              maxHeight: mobile ? '40vh' : 'none',
+              overflowY: mobile ? 'auto' : 'visible',
+              WebkitOverflowScrolling: 'touch',
+            }}
           >
             {languages.map((lang) => (
               <button

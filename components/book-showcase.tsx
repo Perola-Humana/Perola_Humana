@@ -24,6 +24,7 @@ export default function BookShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
   const [pageWidth, setPageWidth] = useState(0)
+  const [windowWidth, setWindowWidth] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
   const totalSlides = books.length
@@ -31,6 +32,7 @@ export default function BookShowcase() {
   useEffect(() => {
     const handleResize = () => {
       setPageWidth(containerRef.current?.clientWidth || 0)
+      setWindowWidth(window.innerWidth)
     }
     handleResize()
     window.addEventListener("resize", handleResize)
@@ -74,9 +76,10 @@ export default function BookShowcase() {
   }
 
   const currentBook = books[currentIndex]
+  const isMobile = windowWidth < 640
 
   return (
-    <section id="book" className="pt-32 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-32 px-4 sm:px-6 relative scroll-mt-20 bg-gradient-to-b from-secondary/10 to-background">
+    <section id="book" className="pt-32 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-32 px-4 sm:px-6 relative overflow-x-hidden scroll-mt-20 bg-gradient-to-b from-secondary/10 to-background">
       <div className="max-w-7xl mx-auto">
         <div className="relative my-0">
           <div ref={containerRef} className="overflow-hidden">
@@ -92,8 +95,8 @@ export default function BookShowcase() {
                   x: { type: "spring", stiffness: 300, damping: 30 },
                   opacity: { duration: 0.3 },
                 }}
-                drag="x"
-                dragConstraints={{ left: -pageWidth, right: pageWidth }}
+                drag={isMobile ? false : "x"}
+                dragConstraints={isMobile ? undefined : { left: -pageWidth, right: pageWidth }}
                 dragElastic={0.1}
                 dragTransition={{ bounceStiffness: 600, bounceDamping: 40 }}
                 onDragEnd={handleDragEnd}
@@ -116,7 +119,7 @@ export default function BookShowcase() {
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 rounded-2xl blur-3xl group-hover:blur-2xl transition-all duration-500" />
 
                     {/* Imagem da capa */}
-                    <div className="relative w-72 h-[28rem] rounded-2xl shadow-2xl overflow-hidden border-4 border-slate-600/50">
+                    <div className="relative w-full max-w-72 h-[22rem] sm:h-[28rem] rounded-2xl shadow-2xl overflow-hidden border-4 border-slate-600/50">
                       <img
                         src="/Capa_livro.jpeg"
                         alt="Capa do livro"

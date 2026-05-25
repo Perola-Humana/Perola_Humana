@@ -75,19 +75,36 @@ export function Header() {
     setLangDropdownOpen(false)
     setMobileMenuOpen(false)
 
-    // Clear existing cookies
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname
+    const hostname = window.location.hostname
+    const rootHostname = hostname.replace(/^www\./, '')
+    const expires = 'Thu, 01 Jan 1970 00:00:00 GMT'
+
+    const clearCookie = (domain?: string) => {
+      const domainPart = domain ? `; domain=${domain}` : ''
+      document.cookie = `googtrans=; expires=${expires}; Max-Age=0; path=/${domainPart}`
+    }
+
+    clearCookie()
+    clearCookie(hostname)
+    if (rootHostname !== hostname) {
+      clearCookie(rootHostname)
+      clearCookie(`.${rootHostname}`)
+    }
 
     if (lang.googCode === null) {
       // Back to Portuguese
-      window.location.reload()
+      window.location.replace(window.location.pathname + window.location.search + window.location.hash)
       return
     }
 
-    document.cookie = `googtrans=/pt/${lang.googCode}; path=/`
-    document.cookie = `googtrans=/pt/${lang.googCode}; path=/; domain=${window.location.hostname}`
-    window.location.reload()
+    const translatedValue = `googtrans=/pt/${lang.googCode}; path=/; max-age=${60 * 60 * 24 * 365}`
+    document.cookie = translatedValue
+    document.cookie = `${translatedValue}; domain=${hostname}`
+    if (rootHostname !== hostname) {
+      document.cookie = `${translatedValue}; domain=${rootHostname}`
+      document.cookie = `${translatedValue}; domain=.${rootHostname}`
+    }
+    window.location.replace(window.location.pathname + window.location.search + window.location.hash)
   }
 
   const handleNavClick = () => setMobileMenuOpen(false)
@@ -110,7 +127,7 @@ export function Header() {
     "block py-3 text-lg font-medium text-[#C8935F] hover:text-[#E8C99A] transition-colors duration-300 border-b border-border last:border-0"
 
   const LangSwitcher = ({ mobile = false }: { mobile?: boolean }) => (
-    <div ref={!mobile ? dropdownRef : undefined} style={{ position: 'relative' }}>
+    <div ref={!mobile ? dropdownRef : undefined} style={{ position: 'relative', zIndex: 70 }}>
       <button
         onClick={() => setLangDropdownOpen(!langDropdownOpen)}
         style={{
@@ -141,17 +158,20 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{
-              position: mobile ? 'static' : 'static',
-              zIndex: mobile ? 60 : 'auto',
+              position: mobile ? 'static' : 'absolute',
+              top: mobile ? 'auto' : 'calc(100% + 8px)',
+              left: mobile ? 'auto' : 0,
+              right: mobile ? 'auto' : 0,
+              zIndex: mobile ? 60 : 80,
               borderTop: '1px solid #e5e7eb',
               backgroundColor: 'rgba(250, 247, 242, 0.98)',
-              maxHeight: mobile ? '40vh' : 'none',
-              overflowY: mobile ? 'auto' : 'visible',
+              maxHeight: mobile ? '40vh' : '260px',
+              overflowY: 'auto',
               overflowX: 'hidden',
               WebkitOverflowScrolling: 'touch',
-              boxShadow: mobile ? '0 12px 30px rgba(0, 0, 0, 0.12)' : 'none',
-              borderRadius: mobile ? '0 0 8px 8px' : '0',
-              width: mobile ? '100%' : 'auto',
+              boxShadow: '0 12px 30px rgba(0, 0, 0, 0.12)',
+              borderRadius: mobile ? '0 0 8px 8px' : '10px',
+              width: mobile ? '100%' : '220px',
             }}
           >
             {languages.map((lang) => (

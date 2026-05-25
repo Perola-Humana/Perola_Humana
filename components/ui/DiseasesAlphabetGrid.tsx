@@ -989,16 +989,16 @@ export default function DiseasesAlphabetGrid() {
       </h2>
 
       {/* Grid de Letras */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-6xl mx-auto px-4 items-stretch">
         {diseasesData.map((letterGroup) => (
           <motion.button
             key={letterGroup.letter}
             onClick={() => openLetterModal(letterGroup)}
             whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-br from-[#E0A878] to-[#C8935F] rounded-2xl p-2 sm:p-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="h-full min-h-[104px] sm:min-h-[112px] lg:min-h-[120px] bg-gradient-to-br from-[#E0A878] to-[#C8935F] rounded-2xl p-2 sm:p-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex h-full items-center gap-4">
               {/* Círculo com a Letra */}
               <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center flex-shrink-0">
                 <span className="text-2xl font-bold text-[#C8935F]">

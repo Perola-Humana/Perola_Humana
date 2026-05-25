@@ -101,7 +101,7 @@ export default function Events() {
   }
 
   return (
-    <section id="events" className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 bg-muted/20 border">
+    <section id="events" className="pt-32 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-32 px-4 sm:px-6 scroll-mt-20 bg-muted/20 border">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

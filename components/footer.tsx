@@ -48,7 +48,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#events" className={linkWithUnderline}>Eventos</a></li>
-              <li><a href="#timeline" className={linkWithUnderline}>Autoconhecimento</a></li>
+              <li><a href="#self-knowledge" className={linkWithUnderline}>Autoconhecimento</a></li>
               <li><a href="#health-videos" className={linkWithUnderline}>Saúde</a></li>
               <li><a href="#contact" className={linkWithUnderline}>Contacto</a></li>
             </ul>

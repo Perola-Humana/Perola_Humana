@@ -205,7 +205,7 @@ export function Header() {
             <a href="#mission" className={navLink}>O que fazemos</a>
             <a href="#diseases" className={navLink}>Doenças</a>
             <a href="#health-videos" className={navLink}>Saúde</a>
-            <a href="#timeline" className={navLink}>Autoconhecimento</a>
+            <a href="#self-knowledge" className={navLink}>Autoconhecimento</a>
             <a href="#book" className={navLink}>Livro</a>
             <a href="#events" className={navLink}>Eventos</a>
             <a href="#contact" className={navLink}>Contacto</a>
@@ -248,7 +248,7 @@ export function Header() {
               <a href="#mission" onClick={handleNavClick} className={mobileNavLink}>O que fazemos</a>
               <a href="#diseases" onClick={handleNavClick} className={mobileNavLink}>Doenças</a>
               <a href="#health-videos" onClick={handleNavClick} className={mobileNavLink}>Saúde</a>
-              <a href="#timeline" onClick={handleNavClick} className={mobileNavLink}>Autoconhecimento</a>
+              <a href="#self-knowledge" onClick={handleNavClick} className={mobileNavLink}>Autoconhecimento</a>
               <a href="#book" onClick={handleNavClick} className={mobileNavLink}>Livro</a>
               <a href="#events" onClick={handleNavClick} className={mobileNavLink}>Eventos</a>
               <a href="#contact" onClick={handleNavClick} className={mobileNavLink}>Contacto</a>

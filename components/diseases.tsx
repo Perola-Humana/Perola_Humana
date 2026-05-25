@@ -86,7 +86,7 @@ export default function Diseases() {
   const { isPlaying, toggleAudio, currentTime, duration, progress, handleProgressChange, formatTime } = useExclusiveAudio("/music/audio.mp3")
 
   return (
-    <section id="diseases" className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-secondary/10 to-background overflow-hidden">
+    <section id="diseases" className="pt-24 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 relative scroll-mt-20">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header Section */}
         <div className="text-center mb-12 max-w-4xl mx-auto">

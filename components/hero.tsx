@@ -65,7 +65,7 @@ export default function Hero() {
         <img
           src="/peaceful-yoga-meditation-wellness-nature.jpg"
           alt="Background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_50%] md:object-[center_70%]"
         />
         
         {/* Overlay escuro para melhorar legibilidade */}

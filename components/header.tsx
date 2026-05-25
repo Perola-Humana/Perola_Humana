@@ -235,13 +235,14 @@ export function Header() {
       {/* Mobile/Tablet Menu */}
       <AnimatePresence>
         {mobileMenuOpen && showHamburger && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            style={{ borderTop: '1px solid #e5e7eb', overflow: 'hidden', backgroundColor: 'rgba(250, 247, 242, 0.98)' }}
-          >
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          style={{ borderTop: '1px solid #e5e7eb', overflow: 'hidden', backgroundColor: 'rgba(250, 247, 242, 0.98)' }}
+        >
+          <div style={{ overflow: 'visible' }}> {/* wrapper interno */}
             <nav style={{ padding: '8px 16px' }}>
               <a href="#hero" onClick={handleNavClick} className={mobileNavLink}>Início</a>
               <a href="#about" onClick={handleNavClick} className={mobileNavLink}>Sobre Nós</a>
@@ -258,7 +259,8 @@ export function Header() {
                 <LangSwitcher mobile />
               </div>
             </nav>
-          </motion.div>
+          </div>
+        </motion.div>
         )}
       </AnimatePresence>
     </motion.header>

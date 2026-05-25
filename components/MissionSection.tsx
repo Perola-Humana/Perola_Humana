@@ -46,7 +46,7 @@ export default function MissionSection() {
   return (
     <section 
       id="mission" 
-      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative"
+          className="pt-24 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 relative scroll-mt-20"
       style={{
         backgroundImage: 'url(/backgroundWhatWedo.jpeg)',
         backgroundSize: 'cover',

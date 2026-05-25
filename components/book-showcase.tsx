@@ -6,8 +6,8 @@ import { useState, useEffect, useRef } from "react"
 
 const books = [
   {
-    title1: "O mistério do invisível",
-    title2: "A responsabilidade é toda tua",
+    title1: "O Mistério do Invisível",
+    title2: "A Responsabilidade é Toda Tua",
     subtitle: "ESTE LIVRO NÃO É PARA SER LIDO- É PARA SER SENTIDO",
     description1:
       "O mistério do invisível é um convite direto ao despertar de uma consciência que talvez nem saibas que estava adormecida. Vivemos cercados de informação, distrações e incertezas impostas, mas raramente paramos para questionar quem somos, o que escolhemos e quem realmente conduz a nossa vida. ",
@@ -76,10 +76,10 @@ export default function BookShowcase() {
   const currentBook = books[currentIndex]
 
   return (
-    <section id="book" className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-secondary/10 to-background">
+    <section id="book" className="pt-32 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-32 px-4 sm:px-6 relative scroll-mt-20 bg-gradient-to-b from-secondary/10 to-background">
       <div className="max-w-7xl mx-auto">
         <div className="relative my-0">
-          <div ref={containerRef} className="overflow">
+          <div ref={containerRef} className="overflow-hidden">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}

@@ -182,27 +182,28 @@ export function Header() {
   )
 
   return (
-    <motion.header
-      variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border shadow"
-      style={{
-        // backgroundColor: 'rgba(250, 247, 242, 0.95)',
-        backgroundColor: '#0D2B4A',
-        marginTop: isTranslated ? '40px' : '0px',
-        transition: 'margin-top 0.3s ease',
-      }}
-    >
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        height: '80px',
-        padding: isMobile ? '0 18px' : '0 120px',
-        width: '100%',
-        boxSizing: 'border-box',
-      }}>
+    <>
+      <motion.header
+        variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border shadow"
+        style={{
+          // backgroundColor: 'rgba(250, 247, 242, 0.95)',
+          backgroundColor: '#0D2B4A',
+          marginTop: isTranslated ? '40px' : '0px',
+          transition: 'margin-top 0.3s ease',
+        }}
+      >
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '80px',
+          padding: isMobile ? '0 18px' : '0 120px',
+          width: '100%',
+          boxSizing: 'border-box',
+        }}>
 
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
@@ -252,52 +253,53 @@ export function Header() {
           )}
         </div>
 
-        <div id="google_translate_element" style={{ display: 'none' }} />
-      </div>
+          <div id="google_translate_element" style={{ display: 'none' }} />
+        </div>
+      </motion.header>
 
       {/* Mobile/Tablet Menu */}
       <AnimatePresence>
         {mobileMenuOpen && showHamburger && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          style={{
-            borderTop: '1px solid #e5e7eb',
-            backgroundColor: 'rgba(250, 247, 242, 0.98)',
-            position: 'fixed',
-            top: isTranslated ? '120px' : '80px',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            overflowY: 'auto',
-            overflowX: 'hidden',
-            WebkitOverflowScrolling: 'touch',
-            zIndex: 60,
-          }}
-        >
-          <div style={{ overflow: 'visible', position: 'relative' }}> {/* wrapper interno */}
-            <nav style={{ padding: '8px 16px 24px' }}>
-              <a href="#hero" onClick={handleNavClick} className={mobileNavLink}>Início</a>
-              <a href="#about" onClick={handleNavClick} className={mobileNavLink}>Sobre Nós</a>
-              <a href="#mission" onClick={handleNavClick} className={mobileNavLink}>O que fazemos</a>
-              <a href="#diseases" onClick={handleNavClick} className={mobileNavLink}>Doenças</a>
-              <a href="#health-videos" onClick={handleNavClick} className={mobileNavLink}>Saúde</a>
-              <a href="#self-knowledge" onClick={handleNavClick} className={mobileNavLink}>Autoconhecimento</a>
-              <a href="#book" onClick={handleNavClick} className={mobileNavLink}>Livro</a>
-              <a href="#events" onClick={handleNavClick} className={mobileNavLink}>Eventos</a>
-              <a href="#contact" onClick={handleNavClick} className={mobileNavLink}>Contacto</a>
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{
+              borderTop: '1px solid #e5e7eb',
+              backgroundColor: 'rgba(250, 247, 242, 0.98)',
+              position: 'fixed',
+              top: isTranslated ? '120px' : '80px',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              overflowY: 'auto',
+              overflowX: 'hidden',
+              WebkitOverflowScrolling: 'touch',
+              zIndex: 60,
+            }}
+          >
+            <div style={{ overflow: 'visible', position: 'relative' }}> {/* wrapper interno */}
+              <nav style={{ padding: '8px 16px 24px' }}>
+                <a href="#hero" onClick={handleNavClick} className={mobileNavLink}>Início</a>
+                <a href="#about" onClick={handleNavClick} className={mobileNavLink}>Sobre Nós</a>
+                <a href="#mission" onClick={handleNavClick} className={mobileNavLink}>O que fazemos</a>
+                <a href="#diseases" onClick={handleNavClick} className={mobileNavLink}>Doenças</a>
+                <a href="#health-videos" onClick={handleNavClick} className={mobileNavLink}>Saúde</a>
+                <a href="#self-knowledge" onClick={handleNavClick} className={mobileNavLink}>Autoconhecimento</a>
+                <a href="#book" onClick={handleNavClick} className={mobileNavLink}>Livro</a>
+                <a href="#events" onClick={handleNavClick} className={mobileNavLink}>Eventos</a>
+                <a href="#contact" onClick={handleNavClick} className={mobileNavLink}>Contacto</a>
 
-              {/* Lang switcher no menu mobile */}
-              <div style={{ padding: '12px 0' }}>
-                <LangSwitcher mobile />
-              </div>
-            </nav>
-          </div>
-        </motion.div>
+                {/* Lang switcher no menu mobile */}
+                <div style={{ padding: '12px 0' }}>
+                  <LangSwitcher mobile />
+                </div>
+              </nav>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   )
 }

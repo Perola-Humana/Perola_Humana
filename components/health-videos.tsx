@@ -49,7 +49,7 @@ export default function HealthVideos() {
   }
 
   return (
-    <section id="health-videos" className="py-24 bg-slate-950 text-white">
+    <section id="health-videos" className="pt-24 pb-16 sm:pb-20 lg:pt-32 lg:pb-32 px-4 sm:px-6 relative scroll-mt-20 bg-slate-950 text-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

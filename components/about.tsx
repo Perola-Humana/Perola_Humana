@@ -30,7 +30,7 @@ const pearlConcepts = [
 
 export default function About() {
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-gradient-to-b from-background to-secondary/10">
+    <section id="about" className="pt-20 pb-16 sm:pt-20 sm:pb-20 lg:py-20 px-4 sm:px-6 bg-gradient-to-b from-background to-secondary/10 scroll-mt-20">
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           

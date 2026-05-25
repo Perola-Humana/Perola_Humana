@@ -125,16 +125,25 @@ export function Header() {
       <AnimatePresence>
         {langDropdownOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
-            animate={{ opacity: 1, height: "auto", overflow: 'visible' }}
-            exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{
+              position: mobile ? 'absolute' : 'static',
+              top: mobile ? '100%' : 'auto',
+              left: mobile ? 0 : 'auto',
+              right: mobile ? 0 : 'auto',
+              zIndex: mobile ? 60 : 'auto',
               borderTop: '1px solid #e5e7eb',
               backgroundColor: 'rgba(250, 247, 242, 0.98)',
               maxHeight: mobile ? '40vh' : 'none',
               overflowY: mobile ? 'auto' : 'visible',
+              overflowX: 'hidden',
               WebkitOverflowScrolling: 'touch',
+              boxShadow: mobile ? '0 12px 30px rgba(0, 0, 0, 0.12)' : 'none',
+              borderRadius: mobile ? '0 0 8px 8px' : '0',
+              width: mobile ? '100%' : 'auto',
             }}
           >
             {languages.map((lang) => (
@@ -246,9 +255,9 @@ export function Header() {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          style={{ borderTop: '1px solid #e5e7eb', overflow: 'hidden', backgroundColor: 'rgba(250, 247, 242, 0.98)' }}
+          style={{ borderTop: '1px solid #e5e7eb', overflow: 'visible', backgroundColor: 'rgba(250, 247, 242, 0.98)', position: 'relative' }}
         >
-          <div style={{ overflow: 'visible' }}> {/* wrapper interno */}
+          <div style={{ overflow: 'visible', position: 'relative' }}> {/* wrapper interno */}
             <nav style={{ padding: '8px 16px' }}>
               <a href="#hero" onClick={handleNavClick} className={mobileNavLink}>Início</a>
               <a href="#about" onClick={handleNavClick} className={mobileNavLink}>Sobre Nós</a>

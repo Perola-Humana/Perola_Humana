@@ -61,7 +61,7 @@ export default function Timeline() {
               viewport={{ once: true }}
               className="text-center mb-16 sm:mb-20"
             >
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#C8935F] to-[#E0A878] bg-clip-text text-transparent">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-[#C8935F] to-[#E0A878] bg-clip-text text-transparent">
                 {section.section}
               </h2>
                <div className="w-24 h-1 bg-gradient-to-r from-[#C8935F] to-[#E0A878] rounded-full mx-auto mb-4" />

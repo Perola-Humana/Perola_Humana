@@ -59,6 +59,17 @@ export function Header() {
   const showHamburger = windowWidth !== null && windowWidth < 1024
   const isMobile = windowWidth !== null && windowWidth < 640
 
+  useEffect(() => {
+    if (!mobileMenuOpen || !showHamburger) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [mobileMenuOpen, showHamburger])
+
   const switchLanguage = (lang: typeof languages[0]) => {
     setCurrentLang(lang)
     setLangDropdownOpen(false)
@@ -130,10 +141,7 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{
-              position: mobile ? 'absolute' : 'static',
-              top: mobile ? '100%' : 'auto',
-              left: mobile ? 0 : 'auto',
-              right: mobile ? 0 : 'auto',
+              position: mobile ? 'static' : 'static',
               zIndex: mobile ? 60 : 'auto',
               borderTop: '1px solid #e5e7eb',
               backgroundColor: 'rgba(250, 247, 242, 0.98)',
@@ -251,14 +259,26 @@ export function Header() {
       <AnimatePresence>
         {mobileMenuOpen && showHamburger && (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          style={{ borderTop: '1px solid #e5e7eb', overflow: 'visible', backgroundColor: 'rgba(250, 247, 242, 0.98)', position: 'relative' }}
+          style={{
+            borderTop: '1px solid #e5e7eb',
+            backgroundColor: 'rgba(250, 247, 242, 0.98)',
+            position: 'fixed',
+            top: isTranslated ? '120px' : '80px',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            overflowY: 'auto',
+            overflowX: 'hidden',
+            WebkitOverflowScrolling: 'touch',
+            zIndex: 60,
+          }}
         >
           <div style={{ overflow: 'visible', position: 'relative' }}> {/* wrapper interno */}
-            <nav style={{ padding: '8px 16px' }}>
+            <nav style={{ padding: '8px 16px 24px' }}>
               <a href="#hero" onClick={handleNavClick} className={mobileNavLink}>Início</a>
               <a href="#about" onClick={handleNavClick} className={mobileNavLink}>Sobre Nós</a>
               <a href="#mission" onClick={handleNavClick} className={mobileNavLink}>O que fazemos</a>

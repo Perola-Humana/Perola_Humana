@@ -1,209 +1,147 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useScroll } from "framer-motion"
-import { Quote, Sparkles, Brain, Zap, Sun } from "lucide-react"
+import { motion } from "framer-motion"
 
-const quotes = [
+const timelineData = [
   {
-    text: "O UNIVERSO SÓ TE DÁ AQUILO QUE PENSAS, SENTES E DIZES SER DIGNO DE RECEBER",
-    author: "Helena da Fonseca",
-  },
-  {
-    text: "I am several, there are multitudes in me. At the table of my soul, many sit and I am all of them; there is an old man, a child, a sage, a fool. You will never know with whom you are sitting or how long you will remain with each one of me, but I promise that if we sit at the table, in this sacred ritual, I will hand you at least one of the many that I am and run the risk of us being together on the same plane. From the start, avoid illusions; I also have a bad, wicked side that I try to keep locked up and that, when released, shames me. I am not a saint nor an example, unfortunately. Among so many, one day, I discover myself and one day I will be myself definitively, as has already been said: 'Dare to conquer yourself!'",
-    author: "Nietzsche",
-  },
+    section: "AUTOCONHECIMENTO",
+    items: [
+      {
+        title: '"O UNIVERSO SÓ TE DÁ AQUILO QUE PENSAS, SENTES E DIZES SER DIGNO DE RECEBER"',
+        author: "Nietzsche",
+        content: "Eu sou vários, há multidões em mim, ma mesa da minha alma, sentam-se muitos e eu sou todos eles, há um velho, uma criança, um sábio, um tolo. Você nunca saberá com quem está sentado ou quanto tempo permanecerá com cada um de mim, mas prometo que se nos sentarmos à mesa, nesse ritual sagrado, eu lhe entregarei ao menos um de tantos que sou e correrei o risco de estarmos juntos no mesmo plano. Desde inicio evite ilusões, também tenho um lado mau, ruim que tento manter preso e que quando se solta me envergonha. Não sou santo nem exemplo infelizmente, entre tantos, um dia, eu me descubro e um dia eu serei eu mesmo definitivamente, como já foi dito: 'Ouse conquistar a ti mesmo!'",
+        position: "right"
+      },
+      {
+        title: "QUEM SOU EU AFINAL?",
+        content: "O seu corpo não é um corpo físico, é uma massa de energia. Você é feito de milhões de átomos, a energia se manifesta em ondas eletromagnéticas. Você é energia feita de órgãos, os órgãos são feitos de tecidos, tecidos são feitos de células, células são feitas de moléculas, moléculas são feitas de átomos. Quando você entende que não é um corpo físico mas uma energia (alma) que faz parte do divino, que o corpo de você é uma massa energética que vibra de acordo com a tua mente, que você tem o poder de vibrar o que quiser e que automaticamente o teu corpo vibra na mesma frequência, então você vai entender que você só vive a realidade que você mesmo 'possui dentro de ti'. Toda a cura só começa quando você enfrenta suas sombras e feridas com amor. Quando você percebe que não é a sua dor, não são os teus problemas e dificuldades. Quebre todos os bloqueios e muros energéticos que você construiu para te proteger. 'Você não dentro de ti'. Essa é uma versão forjada por feridas, dores, raivas, vergonhas e medos, e verá que nunca esteve quebrado sequer; você simplesmente esqueceu quem era. Reivindique a tua luz, ative o teu poder pessoal. Você só se tornou a si mesmo quando você incorpora o teu novo Self!",
+        position: "left"
+      },
+      {
+        title: "DESPERTAR DE CONSCIÊNCIA É UM CAMINHO SEM VOLTA",
+        content: "O despertar da consciência não acontece de uma vez só, nem de um momento para o outro e vai muito além desta vida. É um processo contínuo de sintonia com sua essência e com os planos mais altos. Quanto mais se desperta, mais se percebe que a realidade vendida é apenas reflexo da programação do sistema. O primeiro sinal de despertar é questionar—questionar as estruturas impostas, as crenças programadas e os padrões que te mantêm preso. Tudo o que você aprendeu dentro da matrix foi desenhado para te manter adormecido, repetindo ciclos sem consciência. Mas quando você consegue ver além do 'véu', algo dentro de você ativa a conexão com o teu verdadeiro eu e, sutilmente, começa aquela sensação de vazio ou insatisfação. Você começa a perceber os sinais, as 'coincidências' (coincidências não existem), as sincronicidades, aquela intuição mais forte do que nunca te guiando em direção ao que é certo. Isso é meramente o despertar da consciência. Imagine tudo o que você acreditou até agora era apenas uma pequena parte do que realmente existe. O despertar da consciência (ou despertar espiritual) é como abrir uma porta para um universo novo. Quando você cruza aquela porta, nada é igual novamente. Você começa a questionar as histórias, os padrões, as crenças que carrega. Percebe que não é o ator mas que a dor é uma resposta do que já passou. Ali você cura teu coração. Esqueça aquilo que te disseram que você era ou como deveria ser. Você precisa renascer das tuas cinzas como a Fênix para se reconectar com a fonte, que é o único Pai e Mãe de onde você vem, e se reinventar sabendo que você é parte de um todo neste processo.",
+        position: "right"
+      },
+      {
+        title: "APOCALIPSE O QUE É AFINAL?",
+        content: "Muitos estão a confundir o tão falado apocalipse bíblico com o despertar planetário. Vamos discutir brevemente essa confusão e a verdadeira transição que nos chama a despertar de dentro para fora. A Bíblia, um livro codificado e manipulado foi usado para aprisionar a consciência humana em dogmas e medos, em uma matrix espiritual que mantém as pessoas presas à espera de um salvador. Sua narrativa foi estruturada como programação preditiva, induzindo crenças limitantes que fazem com que as próprias pessoas manifestem eventos negativos através do inconsciente coletivo. Até o conhecimento do tal de 'Jesus' (nome criado pelo homem) foi distorcido pelo império romano. 'Jesus' nunca pregou culto cego ou intermediários, mas sim a expansão da consciência e o amor incondicional. A tal chamada 'volta de Cristo' é apenas o despertar da consciência humana, que só é um evento interno que se alinha com a nova realidade e nunca é, nem será, um evento externo. Quem eleva a sua vibração, sintoniza-se nessa nova era de luz e consciência, e se alinha com a nova realidade, com a nova vibração do planeta, jamais vivenciará o apocalipse!",
+        position: "left"
+      }
+    ]
+  }
 ]
 
-export default function SelfKnowledge() {
-  const containerRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  })
-
+export default function Timeline() {
   return (
-    <section id="self-knowledge" className="py-24 bg-slate-900 relative overflow-hidden">
-      {/* Abstract background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
-      </div>
+    // Background without img
+    //  <section id="timeline" className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-b from-background via-background/95 to-background"></section>
 
-      <div className="container mx-auto px-4 relative z-10" ref={containerRef}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Autoconhecimento</h2>
-          </motion.div>
+    // Background with img
+    <section 
+      id="self-knowledge" 
+      className="pt-32 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-32 px-4 sm:px-6 relative scroll-mt-20"
+      style={{
+        backgroundImage: 'url(/backgroundSelfKnow.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Overlay para melhorar legibilidade */}
+      <div className="absolute inset-0 bg-white/70"></div>
+      
+      <div className="container mx-auto max-w-7xl relative z-10">
+        {timelineData.map((section, sectionIdx) => (
+          <div key={sectionIdx}>
+            {/* Título Principal */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 sm:mb-20"
+            >
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#C8935F] to-[#E0A878] bg-clip-text text-transparent">
+                {section.section}
+              </h2>
+               <div className="w-24 h-1 bg-gradient-to-r from-[#C8935F] to-[#E0A878] rounded-full mx-auto mb-4" />
+            </motion.div>
 
-        {/* Quotes Carousel */}
-        <div className="mb-20 max-w-4xl mx-auto">
-          <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10">
-            <Quote className="absolute top-8 left-8 w-8 h-8 text-emerald-500/30" />
-            <div className="space-y-12">
-              {quotes.map((quote, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="text-center"
-                >
-                  <p className="text-lg text-slate-300 italic mb-4 leading-relaxed md:text-lg">"{quote.text}"</p>
-                  <p className="text-emerald-400 font-medium">— {quote.author}</p>
-                </motion.div>
-              ))}
+            {/* Timeline Container */}
+            <div className="relative">
+              {/* Linha Vertical Central */}
+              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 via-secondary/40 to-primary/20 -translate-x-1/2 hidden md:block" />
+
+              {/* Timeline Items */}
+              <div className="space-y-24">
+                {section.items.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: index * 0.1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="relative"
+                  >
+                    {/* Dot no centro */}
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: index * 0.1 + 0.3,
+                        type: "spring",
+                        stiffness: 200
+                      }}
+                      viewport={{ once: true }}
+                      className="absolute left-1/2 top-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-primary to-secondary border-4 border-background shadow-lg shadow-primary/30 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block"
+                    />
+
+                    {/* Content Container - Com items-center para centralização vertical */}
+                    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                      {/* Card Título (menor) */}
+                      <div className={`${item.position === "right" ? "md:order-1" : "md:order-2"}`}>
+                        <motion.div
+                          whileHover={{ scale: 1.02, y: -5 }}
+                          className="bg-card/60 backdrop-blur-md border-l-4 border-primary/60 p-6 sm:p-8 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-primary/10"
+                        >
+                          {item.title && (
+                            <h3 className="text-xl sm:text-2xl font-bold text-foreground leading-tight">
+                              {item.title}
+                            </h3>
+                          )}
+                        </motion.div>
+                      </div>
+
+                      {/* Card Conteúdo (maior) */}
+                      <div className={`${item.position === "right" ? "md:order-2" : "md:order-1"}`}>
+                        <motion.div
+                          whileHover={{ scale: 1.02, y: -5 }}
+                          className="bg-card/60 backdrop-blur-md border-l-4 border-secondary/60 p-6 sm:p-8 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-secondary/10"
+                        >
+                          {item.content && (
+                            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4">
+                              {item.content}
+                            </p>
+                          )}
+
+                          {item.author && (
+                            <div className="flex items-center justify-end mt-4">
+                              <span className="text-sm font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                                — {item.author}
+                              </span>
+                            </div>
+                          )}
+                        </motion.div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        ))}
 
-        {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column - Who Am I */}
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
-                  <Zap className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Who Am I After All?</h3>
-              </div>
-              <div className="space-y-4 text-slate-300 leading-relaxed">
-                <p>
-                  Your body is not a physical body, but a mass of energy. Your body is low-frequency energy and
-                  manifests as matter. You are made of millions of atoms and energy is electromagnetic waves.
-                </p>
-                <p>
-                  You are energy and you are made of organs, organs are made of tissues, tissues are made of cells,
-                  cells are made of molecules, molecules are made of atoms. When you understand that you are not a
-                  physical body, but an energy (soul) that is part of the divine, that the body is an energetic mass
-                  that vibrates according to your mind, that you have the power to vibrate whatever you want and that
-                  automatically your body vibrates in the same tuning, then you will understand that you only live the
-                  reality that you yourself "possess inside you".
-                </p>
-                <p>
-                  All healing only begins when you face your shadows and wounds with love. When you realize that you are
-                  not your pain, you are not your problems and difficulties. Break all energetic blockages and walls you
-                  built to protect yourself. That is a version forged by wounds, pains, anger, shame, and fears, and you
-                  will see that after all, you were never in pieces, after all, you had only forgotten who you were.
-                  Claim your light, activate your personal power; you only become you when you incorporate your new
-                  Self!
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400">
-                  <Brain className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Awakening of Consciousness</h3>
-              </div>
-              <div className="space-y-4 text-slate-300 leading-relaxed">
-                <p>
-                  The awakening of consciousness is a path of no return. It does not happen all at once, nor from one
-                  moment to another, and goes far beyond this life; it is a continuous process of tuning in with your
-                  essence and with higher planes. The more you awaken, the more you realize that the reality sold to you
-                  is just a reflection of the system's programming.
-                </p>
-                <p>
-                  The first sign of awakening is to question—question imposed structures, programmed beliefs, and
-                  patterns that keep you imprisoned. Everything you learned inside the matrix was designed to keep you
-                  asleep, repeating cycles without consciousness, but when we manage to see beyond the "veil," something
-                  inside you activates the connection with your true being.
-                </p>
-                <p>
-                  Subtly, that feeling of emptiness or dissatisfaction begins; you start to notice signs, "coincidences"
-                  (coincidences do not exist), synchronicities, that stronger intuition guiding you to what is right—and
-                  that is just the awakening of consciousness.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Column - Rebirth & Apocalypse */}
-          <div className="space-y-8" style={{ marginTop: "3rem" }}>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400">
-                  <Sparkles className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Rebirth</h3>
-              </div>
-              <div className="space-y-4 text-slate-300 leading-relaxed">
-                <p>
-                  Imagine that everything you believed until now was only a small part of what really exists. The
-                  awakening of consciousness (or spiritual awakening) is like opening a door to a new universe, and when
-                  you walk through that door, nothing ever goes back to being as it was before.
-                </p>
-                <p>
-                  You begin to question the stories, the patterns, the beliefs you carry; you realize that after all,
-                  you are not your pain, but that pain is a response to what has already passed, and then you heal your
-                  heart.
-                </p>
-                <p className="italic text-emerald-400 border-l-2 border-emerald-500 pl-4">
-                  Forget what you were told you were or how you had to be; you have to be reborn from your ashes like
-                  the Phoenix, to reconnect with the source, which is the only Father and Mother from whom you proceed,
-                  and reinvent yourself knowing that you are part of a whole in this process. Therefore, never forget:
-                  "Your vibration attracts your reality and only you are responsible for it; good or bad luck does not
-                  exist because everything obeys a divine order and everything is interconnected."
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-400">
-                  <Sun className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Apocalypse: What Is It?</h3>
-              </div>
-              <div className="space-y-4 text-slate-300 leading-relaxed">
-                <p>
-                  Many are confusing the much-talked-about biblical apocalypse with the planetary awakening. The Bible,
-                  a codified and manipulated book, was used to trap human consciousness in dogmas and fears, in a
-                  spiritual matrix that keeps people trapped waiting for a savior.
-                </p>
-                <p>
-                  "Jesus" never preached blind worship or intermediaries, but rather the expansion of consciousness and
-                  unconditional love. The much-talked-about "return of Christ" is just the awakening of the human
-                  being's consciousness, which is only an internal event that aligns with the new reality, and never is
-                  or will be an external event.
-                </p>
-                <p className="font-medium text-white">
-                  Whoever raises their vibration will tune into this new era of light and consciousness and align with
-                  the new reality, with the new vibration of the planet, and never the apocalypse!
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
       </div>
     </section>
   )

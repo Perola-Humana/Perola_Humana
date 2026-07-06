@@ -75,28 +75,28 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault()
 
-  if (validateForm()) {
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      })
+  if (!validateForm()) return
 
-      if (response.ok) {
-        setIsSubmitted(true)
-        setTimeout(() => {
-          setIsSubmitted(false)
-          setFormData({ name: "", email: "", subject: "", message: "" })
-        }, 3000)
-      }
-    } catch (error) {
-      console.error("Erro ao enviar:", error)
-    }
-  }
+  const to = "geral@perolahumana.org"
+  const subject = encodeURIComponent(formData.subject)
+  const body = encodeURIComponent(
+    `Nome: ${formData.name}
+Email de resposta: ${formData.email}
+
+Mensagem:
+${formData.message}`
+  )
+
+  window.location.href = `mailto:${to}?subject=${subject}&body=${body}&reply-to=${formData.email}`
+
+  setIsSubmitted(true)
+  setTimeout(() => {
+    setIsSubmitted(false)
+    setFormData({ name: "", email: "", subject: "", message: "" })
+  }, 3000)
 }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

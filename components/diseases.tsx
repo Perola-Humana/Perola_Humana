@@ -308,6 +308,22 @@ export default function Diseases() {
         {/* Lista Alfabética de Doenças */}
         <DiseasesAlphabetGrid />
       </div>
+
+        {/* Aviso Legal */}
+      <div className="max-w-4xl mx-auto mt-12 p-6 rounded-2xl bg-muted/50 border border-border/60">
+        <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+          Aviso Legal (Disclaimer)
+        </h4>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          As informações disponibilizadas nesta página têm caráter exclusivamente informativo, educativo e de reflexão. O seu conteúdo não constitui aconselhamento médico, diagnóstico, tratamento ou prescrição terapêutica, nem substitui a avaliação, o diagnóstico ou o acompanhamento por um médico ou outro profissional de saúde devidamente qualificado.
+          A Associação Humanitária não é uma entidade prestadora de cuidados de saúde, nem os seus responsáveis exercem atos próprios de profissões de saúde, salvo indicação expressa.
+          Os conteúdos apresentados destinam-se exclusivamente a promover a informação e o desenvolvimento pessoal, não devendo ser interpretados como recomendações médicas ou como substitutos de cuidados de saúde profissionais.
+          Em caso de sintomas, doença ou qualquer preocupação relacionada com a sua saúde física ou mental, deverá consultar um médico ou outro profissional de saúde devidamente habilitado. Nunca interrompa, altere ou inicie qualquer tratamento com base nas informações disponibilizadas neste site.
+          Embora seja envidado o maior cuidado na preparação e atualização dos conteúdos, a Associação Humanitária não garante que as informações estejam isentas de erros, omissões ou desatualizações, nem assume qualquer responsabilidade por decisões ou ações tomadas com base nas informações aqui disponibilizadas.
+          A utilização dos conteúdos deste site é da exclusiva responsabilidade do utilizador.
+        </p>
+      </div>
+
     </section>
   )
 }

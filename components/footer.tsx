@@ -15,7 +15,7 @@ export function Footer() {
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2">
               <img
-                src="/perola_humana.jpeg"
+                src="/logo_perola.png"
                 alt="Pérola Humana"
                 className="h-12 w-auto object-contain"
               />

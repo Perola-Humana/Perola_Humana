@@ -210,7 +210,7 @@ export function Header() {
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border shadow"
         style={{
           // backgroundColor: 'rgba(250, 247, 242, 0.95)',
-          backgroundColor: '#0D2B4A',
+          backgroundColor: '#FAF7F2',
           marginTop: isTranslated ? '40px' : '0px',
           transition: 'margin-top 0.3s ease',
         }}
@@ -227,7 +227,7 @@ export function Header() {
 
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-          <img src="/perola_humana.jpeg" alt="Pérola Humana" style={{ height: showDesktopNav ? '56px' : '44px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} />
+          <img src="/logo_perola.png" alt="Pérola Humana" style={{ height: showDesktopNav ? '70px' : '54px', width: 'auto', objectFit: 'contain', flexShrink: 0 }} />
           <span
             className={cinzel.className}
             style={{
